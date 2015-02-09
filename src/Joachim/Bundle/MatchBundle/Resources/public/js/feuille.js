@@ -2,7 +2,7 @@
  * Created by joachim on 17/01/15.
  */
 
-var compo = null, utils = new Utils();
+var compo = null, utils = new Utils(), doublons = {};
 
 $(document).ready(function () {
     $('h4 > a').click(function () {
