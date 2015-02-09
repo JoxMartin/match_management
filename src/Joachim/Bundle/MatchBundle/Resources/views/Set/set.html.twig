@@ -1,0 +1,21 @@
+<div class="composition composition-{{ number }} {% if number != 1 %}hidden{% endif %}">
+    <div class="panel-body row">
+        <div class="col-md-6">
+            <p>Equipe recevante : {{ match.equipeRecevante }}</p>
+            <p>{{ include('JoachimMatchBundle:Set:composition.html.twig', {'type': 'R', 'number': number, 'joueurs': joueursR }) }}</p>
+            {{ include('JoachimMatchBundle:Set:actions.html.twig', {'type': 'R', 'number': number}) }}
+        </div>
+        <div class="col-md-6">
+            <p>Equipe visiteuse : {{ match.equipeVisiteuse }}</p>
+            {{ include('JoachimMatchBundle:Set:composition.html.twig', {'type': 'V', 'number': number, 'joueurs': joueursV }) }}
+            {{ include('JoachimMatchBundle:Set:actions.html.twig', {'type': 'V', 'number': number}) }}
+        </div>
+    </div>
+    <div class="panel-body row">
+        <div class="col-md-12 text-center score">
+            <span class="">0</span>
+            -
+            <span class="">0</span>
+        </div>
+    </div>
+</div>

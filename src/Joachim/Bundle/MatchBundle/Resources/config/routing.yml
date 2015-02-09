@@ -1,0 +1,3 @@
+joachim_match_homepage:
+    path:     /feuille/{name}
+    defaults: { _controller: JoachimMatchBundle:Default:index }

@@ -1,0 +1,19 @@
+<table class="table">
+    {% for i in 1..6 %}
+    <tr>
+        <td>Poste {{ i }} :</td>
+        <td><select class="rotation"  name="rotation_{{ type }}_{{ number}}_{{ i }}">
+                <option>Choisir</option>
+            </select>
+        </td>
+    </tr>
+
+    {% endfor %}
+    <tr>
+        <td>Libéro :</td>
+        <td><select>
+                <option>Choisir</option>
+            </select>
+        </td>
+    </tr>
+</table>

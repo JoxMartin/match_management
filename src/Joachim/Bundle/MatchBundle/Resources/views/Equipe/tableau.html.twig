@@ -1,0 +1,16 @@
+<table class="table">
+    {% for i in 1..12 %}
+    <tr class="{% if i is odd %}active{% else %}info{% endif %}">
+        <td width="10%"><input type="radio" value="{{ i }}" name="capitaine{{ type }}" aria-label="Capitaine"></td>
+        <td width="80%">
+            <select class="form-control" id="licence{{ type }}{{ i }}" name="licence{{ type }}{{ i }}">
+                <option value=""></option>
+                {% for joueur in joueurs %}
+                <option value="{{ joueur.numeroLicence }}">{{ joueur }}</option>
+                {% endfor %}
+            </select>
+        </td>
+        <td width="10%"><input type="number" name="numero{{ type }}{{ i }}" value="{{ i }}" aria-label="Numéro" min="1" max="20"></td>
+    </tr>
+    {% endfor %}
+</table>

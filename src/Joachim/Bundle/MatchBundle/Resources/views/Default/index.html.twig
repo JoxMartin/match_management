@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="{{ asset('bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" />
+        <script src="{{ asset('/bundles/sonataadmin/vendor/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('/bundles/sonataadmin/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('/bundles/joachimmatch/js/utils.js') }}"></script>
+        <script src="{{ asset('/bundles/joachimmatch/js/joueur.js') }}"></script>
+        <script src="{{ asset('/bundles/joachimmatch/js/compo.js') }}"></script>
+        <script src="{{ asset('/bundles/joachimmatch/js/feuille.js') }}"></script>
+    </head>
+    <body>
+        <div class="panel-group  container" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Officiels
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>Premier arbitre : </dt>
+                            <dd>{{ match.arbitre }}</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                            <dt>Second arbitre : </dt>
+                            <dd>{{ match.second }}</dd>
+                        </dl>
+                        {% if match.marqueur %}
+                        <dl class="dl-horizontal">
+                            <dt>Marqueur : </dt>
+                            <dd>{{ match.marqueur }}</dd>
+                        </dl>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title panel-equipe">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Équipes
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body row">
+                        <div class="col-md-6">
+                            <p>Equipe recevante : {{ match.equipeRecevante }}</p>
+                            <p>{{ include('JoachimMatchBundle:Equipe:tableau.html.twig', {'type': 'R', 'joueurs': joueursR }) }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Equipe visiteuse : {{ match.equipeVisiteuse }}</p>
+                            {{ include('JoachimMatchBundle:Equipe:tableau.html.twig', {'type': 'V', 'joueurs': joueursV }) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Sets
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <ul class="list-inline">
+                            <li><button type="button" class="btn btn-lg btn-warning currentSet">1</button></li>
+                            <li><button type="button" class="btn btn-lg btn-warning currentSet hidden">2</button></li>
+                            <li><button type="button" class="btn btn-lg btn-warning currentSet hidden">3</button></li>
+                            <li><button type="button" class="btn btn-lg btn-warning currentSet hidden">4</button></li>
+                            <li><button type="button" class="btn btn-lg btn-warning currentSet hidden">5</button></li>
+                        </ul>
+                        {% for i in 1..5 %}
+                        {{ include('JoachimMatchBundle:Set:set.html.twig', {'number': i, 'match': match}) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Totaux
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+        </div>
+   {# {{ form(form) }}#}
+    </body>
+</html>

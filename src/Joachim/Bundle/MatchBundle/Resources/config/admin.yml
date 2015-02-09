@@ -1,0 +1,101 @@
+services:
+    sonata.admin.adresse:
+        class: Joachim\Bundle\MatchBundle\Admin\AdresseAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Adresse" }
+        arguments:
+            - ~
+            - Joachim\Bundle\MatchBundle\Entity\Adresse
+            - ~
+        calls:
+            - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.club:
+        class: Joachim\Bundle\MatchBundle\Admin\ClubAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Clubs" }
+        arguments:
+            - ~
+            - Joachim\Bundle\MatchBundle\Entity\Club
+            - ~
+        calls:
+            - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.equipe:
+            class: Joachim\Bundle\MatchBundle\Admin\EquipeAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Ressources", label: "Équipe" }
+            arguments:
+                - ~
+                - Joachim\Bundle\MatchBundle\Entity\Equipe
+                - ~
+            calls:
+                - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.gymnase:
+        class: Joachim\Bundle\MatchBundle\Admin\GymnaseAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Ressources", label: "Gymnases" }
+        arguments:
+            - ~
+            - Joachim\Bundle\MatchBundle\Entity\Gymnase
+            - ~
+        calls:
+            - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.licence:
+        class: Joachim\Bundle\MatchBundle\Admin\LicenceAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Ressources", label: "Licence" }
+        arguments:
+            - ~
+            - Joachim\Bundle\MatchBundle\Entity\Licence
+            - ~
+        calls:
+            - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.licencie:
+        class: Joachim\Bundle\MatchBundle\Admin\LicencieAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Licencié" }
+        arguments:
+            - ~
+            - Joachim\Bundle\MatchBundle\Entity\Licencie
+            - ~
+        calls:
+            - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.niveau:
+            class: Joachim\Bundle\MatchBundle\Admin\NiveauAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Niveau" }
+            arguments:
+                - ~
+                - Joachim\Bundle\MatchBundle\Entity\Niveau
+                - ~
+            calls:
+                - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.rencontre:
+            class: Joachim\Bundle\MatchBundle\Admin\RencontreAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Calendrier", label: "Match" }
+            arguments:
+                - ~
+                - Joachim\Bundle\MatchBundle\Entity\Rencontre
+                - ~
+            calls:
+                - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.saison:
+        class: Joachim\Bundle\MatchBundle\Admin\SaisonAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Saison" }
+        arguments:
+            - ~
+            - Joachim\Bundle\MatchBundle\Entity\Saison
+            - ~
+        calls:
+            - [ setTranslationDomain, [JoachimMatchBundle]]
+    sonata.admin.ville:
+        class: Joachim\Bundle\MatchBundle\Admin\VilleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Ville" }
+        arguments:
+            - ~
+            - Joachim\Bundle\MatchBundle\Entity\Ville
+            - ~
+        calls:
+            - [ setTranslationDomain, [JoachimMatchBundle]]
