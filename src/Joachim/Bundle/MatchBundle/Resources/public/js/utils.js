@@ -15,6 +15,7 @@ function Utils() {
         champ = current.attr('name');
         prefix = champ.substr(0,champ.length -2);
 
+        // Récupération du tableau de doublon
         if (doublons[prefix] !== undefined) {
             internalValues = doublons[prefix];
         }
@@ -57,11 +58,9 @@ function Utils() {
         });
 
         // Suppression de toutes les classes d'alerte
-        $("select[name^=" + prefix).each(function () {
-           $(this).parent().removeClass('danger');
-        });
+        $("select[name^=" + prefix + "]").parent().removeClass('danger');
 
-        // On effectue une dernière boucle sur les éléments pour
+        // On effectue une dernière boucle sur les éléments pour mettre en surbrillance les doublons
         $(internalValues).each(function () {
             if (this.reference.length > 1) {
                 var i = 0, tabLength = this.reference.length;
